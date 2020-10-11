@@ -1,0 +1,9 @@
+{% extends '../layout.html.twig' %}
+
+{% if categorie != null %}
+    {% foreach idea in ideas %}
+    <div>
+        {{ idea.title }}
+    </div>
+
+{% endif %}

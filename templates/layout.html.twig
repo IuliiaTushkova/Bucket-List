@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('output/sass.css') }}">
+    {% block script %}
+        <script src="{{ asset('js/script.js') }}"></script>
+    {% endblock %}
+    <title>{% block title %}Bucket list{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <div class="pic">
+           {#  <img src="{{ asset('img/picture.png') }}" alt="logo">#}
+        </div>
+        <h1>Bucket List</h1>
+    </header>
+    <main class="main">
+        {% block main %}{% endblock %}
+    </main>
+    <footer>
+            <div class="nav">
+                {% block nav %}
+                    {# for every user #}
+                    <a href="{{ path('about') }}" class="nav-item">About us</a>
+
+                    {# If the user is logged : logout, ajouter une idee, voir la liste de ses idées #}
+                    {% if app.user %}
+                        <a href="{{ path('app_logout') }}" class="nav-item">Logout</a>
+                        <a href="{{ path('my_profile') }}" class="nav-item">Mon profile</a>
+                        <a href="{{ path('idea_add') }}" class="nav-item">Ajouter une idée</a>
+                        <a href="{{ path('idea') }}" class="nav-item">Liste de mes idées</a>
+                    {% endif %}
+
+                    {# if the user is not logged #}
+                    {% if app.user == null %}
+                        <a href="{{ path('app_login') }}" class="nav-item">Login</a>
+                    {% endif %}
+                {% endblock %}
+            </div>
+            <p class="copy-right">&copy; Bucket List {{ "now"|date("Y") }}</p>
+    </footer>
+</body>
+</html>

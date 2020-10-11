@@ -1,0 +1,55 @@
+{% extends 'layout.html.twig' %}
+
+{% block main %}
+    {# --------------- Add flush -------------------- #}
+    {% for label, messages in app.flashes('success') %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }} width-100 font-size-text" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    <ul class="padding-top font-size-text">
+       {#
+        {% for idea in ideas %}
+                <li class="list-ideas">
+                    <a href="{{ path('idea_details', {'id': idea.id}) }}">{{idea.title}}</a>
+                    <a href="{{ path('remove_one', {'id': idea.id}) }}" class="btn-delete">Supprimer</a>
+                </li>
+
+        {% endfor %}
+       #}
+        {% if app.user %}
+            {% for idea in app.user.ideas %}
+                <li class="list-ideas">
+                    <a href="{{ path('idea_details', {'id': idea.id}) }}">{{idea.title}}</a>
+                    <a href="{{ path('remove_one', {'id': idea.id}) }}" class="btn-delete">Supprimer</a>
+                </li>
+            {% endfor %}
+        {% endif %}
+        {# -------------------------  Si la liste des idées est vide  -------------------------------- #}
+        {% if app.user.ideas == null %}
+            <div class="padding-top width-100 font-size-text">
+                <p>La liste des idées est vide!</p>
+                <p>Tu peux clicker sur "Ajouter une idée" en bas de la page si tu souhaites commencer ta liste!</p>
+            </div>
+        {% endif %}
+    </ul>
+    {# -------------------------  Btn suppression | Btn sort by categorie  -------------------------------- #}
+    {% if app.user.ideas %}
+    <div class="width-100 padding-top">
+        <button type="button" id="delete" class="btn btn-outline-danger">
+            <a href="{{ path('remove_all') }}">Supprimer tout</a>
+        </button>
+        <button type="button" id="sort" class="btn btn-info">
+            <a href="{{ path('sort_by_category') }}">Trier par catégorie</a>
+        </button>
+    </div>
+
+    {% endif %}
+
+
+{% endblock %}
+
+

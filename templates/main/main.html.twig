@@ -1,0 +1,21 @@
+{% extends 'layout.html.twig' %}
+
+{% block main %}
+{# -------------- Message for the user -------------------------------- #}
+    {% for label, messages in app.flashes(['success']) %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }} width-100 position-fixed">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {# -------------- Main content -------------------------------- #}
+      <div class="width-100 text-accueil">
+          {% if app.user %}
+              <p>Hello, {{ app.user.pseudo }}</p>
+          {% endif %}
+              <div class="width-50">
+                  <p>Bienvenu sur l'application qui vous permettra noter tout ce qu'il faudra faire avant de mourir!</p>
+              </div>
+          </div>
+{% endblock %}

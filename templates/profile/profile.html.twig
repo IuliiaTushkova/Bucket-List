@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+{% block main %}
+    <h3>Te voilà, {{ app.user.pseudo }}</h3>
+
+    <p>Ton mail : {{ app.user.email }}</p>
+
+    <div>
+        <h2>Quelques modifications ? </h2>
+        <a href="#">Ton mail</a>
+    </div>
+
+
+{% endblock %}

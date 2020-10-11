@@ -1,0 +1,32 @@
+{% extends 'layout.html.twig' %}
+
+
+
+{% block title %}{{ {% block title %}{% endblock %}{% endblock %}
+
+{# --------------------------- MAIN --------------------------
+        Affiche les détails de chaque idées entrée
+#}
+{% block main %}
+    <div class="width-100 padding-top">
+        <h3> Une chose à faire avant mourir : <span class="details-idee width-100 padding-top mise-en-gras">{{ idee.title }}</span></h3>
+    </div>
+    <div class="width-100 font-size-text padding-top">
+        <ul>
+            <li>Catégorie : {{ idee.categorie.categorie }}</li>
+            <li>Date de création : {{ idee.dateCreated|date("m/d/Y") }}</li>
+            <li>Crée par {{ app.user.pseudo }}</li>
+            <li>Description : {{ idee.description }}</li>
+        </ul>
+    </div>
+{% endblock %}
+
+
+{# --------------------------- Nav | Footer -------------------------- #}
+
+{% block nav %}
+    <a href="{{ path('home') }}" class="nav-item">Accueil</a>
+    <a href="{{ path('about') }}" class="nav-item">About us</a>
+    <a href="{{ path('idea') }}" class="nav-item">Liste des idées</a>
+    <a href="{{ path('idea_add') }}" class="nav-item">Ajouter une idée</a>
+{% endblock %}

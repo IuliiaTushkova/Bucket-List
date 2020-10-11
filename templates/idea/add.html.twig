@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+
+
+{# ------- Partie main ----------- #}
+{% block main %}
+    <div>
+        {# Afficher le formulaire en le décomposant #}
+            {# Balise d'ouverture du formulaire #}
+        {{ form_start(ideaForm) }}
+            {# Le corps/les champs du formulaire #}
+        {{ form_row(ideaForm.title) }}
+        {{ form_row(ideaForm.description) }}
+        {{ form }}
+f
+        {{ form_row(ideaForm.categorie) }}
+            {# Créer un btn de validation #}
+        <button type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false">
+            Enregistrer
+        </button>
+        {{ form_end(ideaForm) }}
+    </div>
+{% endblock %}
+
+{# ------- Nav ----------- #}
+{% block nav %}
+    <a href="{{ path('home') }}" class="nav-item">Accueil</a>
+    <a href="{{ path('about') }}" class="nav-item">About us</a>
+    <a href="{{ path('idea') }}" class="nav-item">Liste des idées</a>
+{% endblock %}
