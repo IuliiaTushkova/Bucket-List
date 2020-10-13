@@ -1,0 +1,181 @@
+%flex-containers
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: center
+  align-items: center
+
+%flex-containers-space-around
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: space-around
+
+
+/*********  Variables *********/
+
+$color-hd-ft-text: #64958f
+$color-text-on-dark-background: #faf3dd
+$dark-peach: #ffbb91
+$dark-text: #065c6f
+$mise-en-valeur: #b83b5e
+
+/*********  Position *********/
+
+.position-fixed
+  position: fixed
+  margin-top: 90px
+  top: 0
+
+/*********  Dimensionnel *********/
+
+.width-100
+  @extend %flex-containers
+  width: 100%
+
+.width-40
+  width: 40%
+
+.width-50
+  width: 50%
+
+
+/*********   Non dimensionnel *********/
+
+.font-size-text
+  font-size: 1.5rem
+
+.mise-en-gras
+  font-weight: bold
+
+.red
+  color: $mise-en-valeur
+
+
+
+/******************   Balises   **********************/
+
+body
+  font-family: 'Baloo Tammudu 2', cursive
+  padding-bottom: 30px
+
+header
+  @extend %flex-containers
+  background-color: $color-hd-ft-text
+  padding-top: 30px
+
+a
+  color: #222222
+
+a:hover
+  text-decoration: none
+  color: #222222
+
+p
+  width: 100%
+  text-align: center
+
+h1
+  font-size: 4rem
+  color: $color-text-on-dark-background
+  text-shadow: 3px 3px $dark-peach
+
+.main
+  @extend %flex-containers
+  background-color: $color-text-on-dark-background
+  height: 80vh
+
+header
+  img
+    width: 50px
+    height: 50px
+    position: fixed
+    left: 0
+    top: 0
+
+.pic
+  @extend %flex-containers
+  width: 100%
+
+main
+  @extend %flex-containers
+
+
+/********** Accueil ***********/
+
+.text-accueil
+
+  height: 60%
+  position: absolute
+  padding: 50px 50px
+  background-color: rgba(98%, 95%, 87%, 0.9)
+
+.text-accueil
+  p
+    font-size: 2rem
+    color: $dark-text
+
+
+
+/********************** Détails idée *********************/
+
+.details-idee
+  color: #AA3333
+
+.detail
+  width: 100%
+  text-align: center
+
+.padding-top
+  padding-top: 5rem
+
+
+.test
+  width: 100%
+
+
+/************  Liste d'idée **********************/
+
+.list-ideas
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  grid-gap: 70px
+
+.btn-delete
+  color: #AA3333
+  font-weight: bold
+
+/************  Footer **********************/
+
+footer
+  position: fixed
+  left: 0
+  bottom: 0
+  width: 100%
+
+  text-align: center
+  background-color: $color-hd-ft-text
+  color: #ffffff
+  @extend %flex-containers
+
+footer p
+  width: 100%
+  text-align: center
+
+/** Nav bar **/
+
+.nav-item
+  padding-bottom: 2rem
+  color: $color-text-on-dark-background
+
+.nav-item:hover
+  color: #ffffff
+
+.nav
+  width: 60%
+  padding-top: 3rem
+  @extend %flex-containers-space-around
+
+.copy-right
+  font-size: 9px
+
